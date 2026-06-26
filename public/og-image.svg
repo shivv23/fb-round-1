@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#172b36"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="60" y1="315" x2="1140" y2="315" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="600" y1="60" x2="600" y2="570" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <text x="600" y="240" text-anchor="middle" font-family="system-ui,sans-serif" font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-2">NovaAutomate</text>
+  <text x="600" y="310" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" fill="#a0aec0" letter-spacing="4">AI-Powered Data Automation Platform</text>
+  <text x="600" y="430" text-anchor="middle" font-family="monospace" font-size="14" fill="#a7a7a7" letter-spacing="2">10M+ records/sec · 99.9% uptime · 200+ integrations</text>
+  <circle cx="300" cy="500" r="3" fill="#ffc801"/>
+  <circle cx="900" cy="500" r="3" fill="#114c5a"/>
+</svg>
