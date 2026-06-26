@@ -66,8 +66,8 @@ export default function Footer() {
               ))}
             </ul>
             <div className="flex items-center gap-2 mt-6">
-              {[{abbr:'X',label:'Twitter'},{abbr:'GH',label:'GitHub'},{abbr:'LI',label:'LinkedIn'}].map((s) => (
-                <a key={s.label} href="#" className="w-8 h-8 border border-white/10 rounded-[4px] flex items-center justify-center text-[10px] font-mono text-[#a7a7a7] hover:border-white/30 hover:text-white transition-all duration-150" aria-label={s.label}>
+              {[{abbr:'X',label:'Twitter',url:'https://x.com'},{abbr:'GH',label:'GitHub',url:'https://github.com'},{abbr:'LI',label:'LinkedIn',url:'https://linkedin.com'}].map((s) => (
+                <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer" className="w-8 h-8 border border-white/10 rounded-[4px] flex items-center justify-center text-[10px] font-mono text-[#a7a7a7] hover:border-white/30 hover:text-white transition-all duration-150" aria-label={s.label}>
                   <span aria-hidden="true">{s.abbr}</span>
                 </a>
               ))}
