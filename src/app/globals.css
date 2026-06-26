@@ -397,6 +397,7 @@ body {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 60;
   opacity: 0;
@@ -417,6 +418,7 @@ body {
   width: 300px;
   max-width: 80vw;
   background: rgba(10, 10, 10, 0.95);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-left: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 70;
@@ -514,6 +516,7 @@ body {
   position: absolute;
   border: 1px solid rgba(255,255,255,0.03);
   background: rgba(255,255,255,0.01);
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   border-radius: 0.5rem;
   pointer-events: none;
@@ -748,6 +751,7 @@ body {
   gap: 0.5rem;
   padding: 0.5rem 1rem 0.5rem 0.75rem;
   background: rgba(10, 10, 10, 0.85);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 100px;
@@ -851,6 +855,7 @@ body {
   color: rgba(255,255,255,0.015);
   pointer-events: none;
   line-height: 1;
+  -webkit-user-select: none;
   user-select: none;
   letter-spacing: -0.05em;
   font-family: var(--font-sans);

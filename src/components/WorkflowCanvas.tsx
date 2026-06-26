@@ -1,5 +1,6 @@
 'use client';
 
+import { Fragment } from 'react';
 import { CONTENT } from '@/lib/content';
 import { Section, SectionHeader, SectionLabel } from './primitives';
 
@@ -24,14 +25,13 @@ export default function WorkflowCanvas() {
             <div className="relative z-10 space-y-6">
               <div className="flex items-center gap-3">
                 {nodes.map((node, i) => (
-                  <>
+                  <Fragment key={node.label}>
                     {i > 0 && (
-                      <svg key={`arrow-${i}`} className="w-6 h-6 text-white/20 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
+                      <svg className="w-6 h-6 text-white/20 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                       </svg>
                     )}
                     <div
-                      key={node.label}
                       className={`px-4 py-3 rounded-sm text-xs font-mono ${
                         node.variant === 'accent'
                           ? 'border border-[#114c5a]/50 bg-[#114c5a]/10 text-[#114c5a]'
@@ -40,7 +40,7 @@ export default function WorkflowCanvas() {
                     >
                       {node.label}
                     </div>
-                  </>
+                  </Fragment>
                 ))}
               </div>
               <div className="flex items-center gap-3 ml-16">

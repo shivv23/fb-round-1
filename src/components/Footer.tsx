@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="text-xs text-[#a7a7a7]">Get product updates and industry insights.</div>
           </div>
           <div className="flex items-center gap-2">
-            <input type="email" placeholder="Enter your email" className="newsletter-input" aria-label="Email for newsletter" />
+            <input type="email" name="email" placeholder="Enter your email" className="newsletter-input" aria-label="Email for newsletter" />
             <a href="#" className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-black bg-white rounded-md hover:bg-white/90 transition-all duration-200">
               Subscribe
             </a>

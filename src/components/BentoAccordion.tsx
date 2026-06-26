@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { FEATURES_DATA } from '@/lib/constants';
+import { FeatureIcon } from '@/lib/icons';
 
 function BentoCard({
   feature,
@@ -84,7 +85,7 @@ function BentoCard({
           }}
         />
         <div className={`w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center mb-5 relative ${index % 3 === 0 ? 'mb-5' : ''}`}>
-          <img src={`/svgs/${feature.icon}.svg`} alt="" className="w-6 h-6 text-teal" aria-hidden="true" />
+          <FeatureIcon name={feature.icon} className="w-6 h-6 text-teal" />
         </div>
       </div>
       <h3 className="font-mono text-lg font-bold text-text-dark mb-3">{feature.title}</h3>
@@ -150,7 +151,7 @@ export default function BentoAccordion() {
                   <div id={`accordion-panel-${i}`} role="region" aria-labelledby={`accordion-btn-${i}`} className={`accordion-panel ${isOpen ? 'open' : ''}`}>
                     <div className="pb-5 text-text-dark/70 text-sm leading-relaxed">
                       <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-3">
-                        <img src={`/svgs/${feature.icon}.svg`} alt="" className="w-5 h-5 text-teal" aria-hidden="true" />
+                        <FeatureIcon name={feature.icon} className="w-5 h-5 text-teal" />
                       </div>
                       {feature.description}
                     </div>
