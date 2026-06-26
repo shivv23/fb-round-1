@@ -4,10 +4,12 @@ import { useRef, useCallback, useState, useEffect } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useTiltEffect } from '@/hooks/useTiltEffect';
 import { TIERS, calculatePrice, formatPrice } from '@/lib/pricingMatrix';
+import { CONTENT } from '@/lib/content';
 import type { Currency, BillingCycle } from '@/types';
 
 const CURRENCIES: Currency[] = ['USD', 'INR', 'EUR'];
 const CURRENCY_SYMBOLS: Record<Currency, string> = { USD: '$', INR: '₹', EUR: '€' };
+const P = CONTENT.pricing;
 
 function PricingCard({
   tier,
@@ -50,7 +52,7 @@ function PricingCard({
     >
       {tier.highlighted && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold rounded-full text-xs font-mono text-black font-semibold tracking-wider z-10">
-          MOST POPULAR
+          {P.badge}
         </div>
       )}
 
@@ -69,18 +71,18 @@ function PricingCard({
             >
               {mounted ? formatPrice(displayPrice, 'USD') : ''}
             </span>
-            <span className="text-text-secondary text-sm font-mono">/month</span>
+            <span className="text-text-secondary text-sm font-mono">{P.perMonth}</span>
           </div>
           {activeCycle === 'annual' && (
             <div className="mt-1">
               <span ref={(el) => { priceNodesRef.current[index][1] = el }} className="text-xs font-mono text-gold">
                 {mounted ? formatPrice(calculatePrice(tier, 'annual', 'USD'), 'USD') : ''}
               </span>
-              <span className="text-xs text-text-secondary font-mono"> billed annually</span>
+              <span className="text-xs text-text-secondary font-mono"> {P.billedAnnually}</span>
             </div>
           )}
           {activeCycle === 'monthly' && (
-            <div className="text-xs text-text-secondary/50 font-mono mt-1">billed monthly</div>
+            <div className="text-xs text-text-secondary/50 font-mono mt-1">{P.billedMonthly}</div>
           )}
         </div>
 
@@ -103,7 +105,7 @@ function PricingCard({
               : 'border border-white/20 text-white hover:border-gold/50 hover:text-gold hover:bg-gold/5'
           }`}
         >
-          <span className="relative z-10">{tier.highlighted ? 'Start Free Trial' : 'Get Started'}</span>
+          <span className="relative z-10">{tier.highlighted ? P.ctaHighlighted : P.ctaDefault}</span>
         </a>
       </div>
     </div>
@@ -171,13 +173,13 @@ export default function PricingMatrix() {
           style={{ transitionDuration: '0.8s' }}
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5 text-xs font-mono text-gold tracking-wider uppercase mb-4">
-            Pricing
+            {P.label}
           </span>
           <h2 className="font-mono text-3xl sm:text-4xl font-bold text-white mb-4">
-            Simple, Transparent Pricing
+            {P.headline}
           </h2>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            Choose the plan that fits your scale. All plans include a 14-day free trial.
+            {P.subtext}
           </p>
         </div>
 
@@ -198,7 +200,7 @@ export default function PricingMatrix() {
               }`}
               aria-pressed={activeCycle === 'monthly'}
             >
-              Monthly
+              {P.monthly}
             </button>
             <button
               onClick={() => handleCycleToggle('annual')}
@@ -209,7 +211,7 @@ export default function PricingMatrix() {
               }`}
               aria-pressed={activeCycle === 'annual'}
             >
-              Annual <span className="text-xs opacity-70">-20%</span>
+              {P.annual} <span className="text-xs opacity-70">{P.annualDiscount}</span>
             </button>
           </div>
 
@@ -218,7 +220,7 @@ export default function PricingMatrix() {
               ref={currencyRef}
               onChange={handleCurrencyChange}
               className="appearance-none bg-white/5 border border-white/10 rounded-full px-5 py-2 pr-10 text-sm font-mono text-white cursor-pointer hover:border-gold/30 transition-colors duration-150 focus:outline-none focus:border-gold/50"
-              aria-label="Select currency"
+              aria-label={P.currencyLabel}
             >
               {CURRENCIES.map((c) => (
                 <option key={c} value={c} className="bg-bg-dark">{CURRENCY_SYMBOLS[c]} {c}</option>

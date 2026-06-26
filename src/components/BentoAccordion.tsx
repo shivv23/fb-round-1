@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { FEATURES_DATA } from '@/lib/constants';
 import { FeatureIcon } from '@/lib/icons';
+import { CONTENT } from '@/lib/content';
+const B = CONTENT.bentoAccordion;
 
 function BentoCard({
   feature,
@@ -121,13 +123,13 @@ export default function BentoAccordion() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-teal/30 bg-teal/5 text-xs font-mono text-teal tracking-wider uppercase mb-4">
-            Platform Features
+            {B.label}
           </span>
           <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-dark mb-4">
-            Built for Scale
+            {B.headline}
           </h2>
           <p className="text-text-dark/60 text-lg max-w-2xl mx-auto">
-            Everything you need to build powerful data automation pipelines.
+            {B.subtext}
           </p>
         </div>
 
