@@ -52,5 +52,6 @@ export const CONTENT = {
   videoTeaser: {
     duration: '2 MINUTES WATCH',
     cta: 'Watch Platform Overview',
+    videoUrl: 'https://drive.google.com/file/d/10TkuOsXuatAIj3fONtEeLFxEmSySHYH0/preview',
   },
 } as const;
